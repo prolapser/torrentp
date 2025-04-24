@@ -26,7 +26,7 @@ async def run_cli(link, download_speed, upload_speed, save_path, stop_after_down
     try:
         torrent_file = TorrentDownloader(link, save_path, stop_after_download=stop_after_download)
         
-        input_task = asyncio.create_task(handle_input(torrent_file))
+        # input_task = asyncio.create_task(handle_input(torrent_file))
         download_task = asyncio.create_task(torrent_file.start_download(download_speed=download_speed, upload_speed=upload_speed))
         
         await asyncio.gather(input_task, download_task)
