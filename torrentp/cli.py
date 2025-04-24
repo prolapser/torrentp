@@ -29,7 +29,7 @@ async def run_cli(link, download_speed, upload_speed, save_path, stop_after_down
         # input_task = asyncio.create_task(handle_input(torrent_file))
         download_task = asyncio.create_task(torrent_file.start_download(download_speed=download_speed, upload_speed=upload_speed))
         
-        await asyncio.gather(input_task, download_task)
+        await asyncio.gather(download_task)
 
     except asyncio.TimeoutError or KeyboardInterrupt:
         print("The Program is terminated manually!")
